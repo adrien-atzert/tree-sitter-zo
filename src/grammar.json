@@ -1,6 +1,6 @@
 {
   "$schema": "https://tree-sitter.github.io/tree-sitter/assets/schemas/grammar.schema.json",
-  "name": "zero_one",
+  "name": "zo",
   "rules": {
     "source_file": {
       "type": "REPEAT",
