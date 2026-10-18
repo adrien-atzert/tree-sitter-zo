@@ -1,0 +1,32 @@
+===
+Parse an enum and a sequence
+===
+
+My_Enum  : enum(u8) {
+  NAME_1=0;
+  NAME_2=12;
+};
+
+My_Seq  : seq {
+  my_enum: My_Enum;
+  x: u8;
+};
+
+---
+
+(source_file
+  (enum_definition
+    name: (identifier)
+    type: (identifier)
+    body: (enum_body
+      name: (identifier)
+      value: (number)
+      name: (identifier)
+      value: (number)))
+  (seq_definition
+    name: (identifier)
+    body: (seq_body
+      name: (identifier)
+      type: (identifier)
+      name: (identifier)
+      type: (identifier))))
