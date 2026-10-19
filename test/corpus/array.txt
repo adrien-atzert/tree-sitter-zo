@@ -1,0 +1,41 @@
+===
+literal-sized array
+===
+
+Literal_Sized_Array: seq {
+    items: [12]u32;
+};
+
+---
+
+(source_file
+  (seq_definition
+    name: (identifier)
+    body: (seq_body
+      name: (identifier)
+      type: (array_type
+        size: (literal_positive_integer)
+        element_type: (identifier)))))
+
+===
+identifier-sized array
+===
+
+Identifier_Sized_Array: seq {
+    count: u32;
+    items: [count]u32;
+};
+
+
+---
+
+(source_file
+  (seq_definition
+    name: (identifier)
+    body: (seq_body
+      name: (identifier)
+      type: (identifier)
+      name: (identifier)
+      type: (array_type
+        size: (identifier)
+        element_type: (identifier)))))

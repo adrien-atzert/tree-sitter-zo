@@ -3,7 +3,6 @@ export default grammar({
 
   extras: $ => [
     /\s/,
-    // Add comments here if needed, e.g., /\/\/.*/
   ],
 
   rules: {
@@ -12,7 +11,6 @@ export default grammar({
       $.seq_definition
     )),
 
-    // Example: My_Enum : enum(u8) { NAME_1 = 0; };
     enum_definition: $ => seq(
       field('name', $.identifier),
       ':',
@@ -30,12 +28,11 @@ export default grammar({
       seq(
         field('name', $.identifier),
         '=',
-        field('value', $.number),
+        field('value', $.literal_integer),
         ';'
       )
     ),
 
-    // Example: My_Seq : seq { my_enum: My_Enum; x: u8; };
     seq_definition: $ => seq(
       field('name', $.identifier),
       ':',
@@ -50,13 +47,24 @@ export default grammar({
       seq(
         field('name', $.identifier),
         ':',
-        field('type', $.identifier),
+        field('type', choice(
+          $.identifier,
+          $.array_type
+        )),
         ';'
       )
     ),
 
+    array_type: $ => seq(
+      '[',
+      field('size', choice($.literal_positive_integer, $.identifier)),
+      ']',
+      field('element_type', $.identifier)
+    ),
+
     identifier: $ => /[a-zA-Z_][a-zA-Z0-9_]*/,
 
-    number: $ => /-?[0-9]+/,
+    literal_positive_integer: $ => /[0-9]+/,
+    literal_integer: $ => /-?[0-9]+/,
   }
 });

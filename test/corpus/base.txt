@@ -1,5 +1,5 @@
 ===
-Parse an enum and a sequence
+enum and sequence
 ===
 
 My_Enum  : enum(u8) {
@@ -20,9 +20,9 @@ My_Seq  : seq {
     type: (identifier)
     body: (enum_body
       name: (identifier)
-      value: (number)
+      value: (literal_integer)
       name: (identifier)
-      value: (number)))
+      value: (literal_integer)))
   (seq_definition
     name: (identifier)
     body: (seq_body

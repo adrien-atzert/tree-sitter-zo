@@ -1,5 +1,35 @@
 [
   {
+    "type": "array_type",
+    "named": true,
+    "fields": {
+      "element_type": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      },
+      "size": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "literal_positive_integer",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
     "type": "enum_body",
     "named": true,
     "fields": {
@@ -18,7 +48,7 @@
         "required": true,
         "types": [
           {
-            "type": "number",
+            "type": "literal_integer",
             "named": true
           }
         ]
@@ -79,6 +109,10 @@
         "multiple": true,
         "required": true,
         "types": [
+          {
+            "type": "array_type",
+            "named": true
+          },
           {
             "type": "identifier",
             "named": true
@@ -154,6 +188,14 @@
     "named": false
   },
   {
+    "type": "[",
+    "named": false
+  },
+  {
+    "type": "]",
+    "named": false
+  },
+  {
     "type": "enum",
     "named": false
   },
@@ -162,7 +204,11 @@
     "named": true
   },
   {
-    "type": "number",
+    "type": "literal_integer",
+    "named": true
+  },
+  {
+    "type": "literal_positive_integer",
     "named": true
   },
   {
